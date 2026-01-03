@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tabLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:padding="8dp"
+    android:background="#F5EFE6">
+
+    <Button
+        android:id="@+id/btnBookInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_weight="1"
+        android:text="책 정보"
+        android:textSize="13sp"
+        android:background="@drawable/bg_tab_selected"
+        android:backgroundTint="#CBBBA0" />
+
+    <Button
+        android:id="@+id/btnOneLine"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_weight="1"
+        android:layout_marginHorizontal="8dp"
+        android:text="한줄평"
+        android:textSize="13sp"
+        android:background="@drawable/bg_tab_selected"
+        android:backgroundTint="#E9E1D6" />
+
+    <Button
+        android:id="@+id/btnDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_weight="1"
+        android:text="세부 사항"
+        android:textSize="13sp"
+        android:background="@drawable/bg_tab_selected"
+        android:backgroundTint="#E9E1D6" />
+
+</LinearLayout>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5EFE6">
+
+    <!-- ================== 상단 검색 영역 ================== -->
+    <LinearLayout
+        android:id="@+id/searchBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="?android:attr/actionModeWebSearchDrawable"/>
+
+        <EditText
+            android:id="@+id/etSearch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:hint="검색어를 입력하세요"
+            android:background="@android:color/transparent"/>
+    </LinearLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_search"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#F5EFE6"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/searchBar" />
+
+    <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/divider2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/read_done_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="12dp"
+                    android:layout_weight="0.3"
+                    android:background="@drawable/bg_radius_12"
+                    android:gravity="center"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="4dp"
+                    android:src="@drawable/bg_under_btn_bar"
+                    android:text="독서 완료"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/read_start_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="12dp"
+                    android:layout_weight="0.3"
+                    android:background="@drawable/bg_radius_12"
+                    android:gravity="center"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="4dp"
+                    android:src="@drawable/bg_under_btn_bar"
+                    android:text="독서 시작"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/store_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="12dp"
+                    android:layout_weight="0.3"
+                    android:background="@drawable/bg_radius_12"
+                    android:gravity="center"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="4dp"
+                    android:src="@drawable/bg_under_btn_bar"
+                    android:text="보관하기"
+                    android:textColor="@color/black" />
+
+
+            </LinearLayout>
+
+
+            <!-- 구분선 -->
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginVertical="16dp"
+        android:background="#B0B0B0"
+        app:layout_constraintBottom_toTopOf="@+id/layout_bottom_menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- =======================
+         하단 메뉴 영역
+    ======================== -->
+    <LinearLayout
+        android:id="@+id/layout_bottom_menu"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="#E9E1D6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageButton
+            android:id="@+id/btn_menu_search"
+            style="@style/BottomMenuButton"
+            android:src="@drawable/search_32px"
+            android:background="@drawable/bg_under_btn_bar"
+            android:backgroundTint="#CBBBA0"/>
+
+        <ImageButton
+            android:id="@+id/btn_menu_library"
+            style="@style/BottomMenuButton"
+            android:src="@drawable/book_32px"
+            android:background="@drawable/bg_under_btn_bar"
+            android:backgroundTint="#E9E1D6" />
+
+        <ImageButton
+            android:id="@+id/btn_menu_home"
+            style="@style/BottomMenuButton"
+            android:src="@drawable/home_32px"
+            android:background="@drawable/bg_under_btn_bar"
+            android:backgroundTint="#E9E1D6" />
+
+        <ImageButton
+            android:id="@+id/btn_menu_record"
+            style="@style/BottomMenuButton"
+            android:src="@drawable/note_32px"
+            android:background="@drawable/bg_under_btn_bar"
+            android:backgroundTint="#E9E1D6"/>
+
+        <ImageButton
+            android:id="@+id/btn_menu_mypage"
+            style="@style/BottomMenuButton"
+            android:src="@drawable/profile_32px"
+            android:background="@drawable/bg_under_btn_bar"
+            android:backgroundTint="#E9E1D6"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

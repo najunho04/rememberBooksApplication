@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5EFE6">
+
+    <!-- 🔹 스크롤 영역 -->
+    <ScrollView
+        android:id="@+id/scrollArea"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/add_item_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <!-- ===== 책 커버 (2:3 비율) ===== -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/book_cover_card_view"
+                android:layout_width="88dp"
+                android:layout_height="0dp"
+                app:cardCornerRadius="8dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                >
+
+                <ImageView
+                    android:id="@+id/iv_book_cover"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerCrop"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="book cover"
+                    android:src="@drawable/demian_book"
+                    app:layout_constraintDimensionRatio="2:3" />
+
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- 📘 제목 -->
+            <TextView
+                android:id="@+id/bookTitle"
+                android:layout_width="0dp"
+                android:layout_height="28dp"
+                android:text="인간 실격"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textColor="#000000"
+                android:fontFamily="@font/noto_serif_kr_semi_bold"
+                app:layout_constraintTop_toTopOf="@id/book_cover_card_view"
+                app:layout_constraintStart_toEndOf="@id/book_cover_card_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="12dp"/>
+
+            <!-- 📘 저자 -->
+            <TextView
+                android:id="@+id/bookAuthor"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="다자이 오사무"
+                android:fontFamily="@font/noto_serif_kr_regular"
+                android:textSize="10sp"
+                android:textColor="#6F6F6F"
+                android:maxLines="1"
+                android:ellipsize="end"
+                app:layout_constraintTop_toBottomOf="@id/bookTitle"
+                app:layout_constraintStart_toStartOf="@id/bookTitle"/>
+
+            <!-- 📘 독서 날짜 / 점수 -->
+            <TextView
+                android:id="@+id/bookMeta1"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:text="2025.12.18 - 진행중"
+                android:fontFamily="@font/noto_serif_kr_semi_bold"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                app:layout_constraintTop_toBottomOf="@id/bookAuthor"
+                app:layout_constraintStart_toStartOf="@id/bookAuthor"/>
+
+            <!-- 📘 남은 독서량 or 한줄평 -->
+            <TextView
+                android:id="@+id/bookMeta2"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:text="남은 독서량: 85%"
+                android:fontFamily="@font/noto_serif_kr_semi_bold"
+                android:textSize="12sp"
+                android:textColor="#000000"
+                android:ellipsize="end"
+                app:layout_constraintTop_toBottomOf="@id/bookMeta1"
+                app:layout_constraintStart_toStartOf="@id/bookAuthor"/>
+
+            <!-- 🔹 남은 독서량 Progress -->
+            <TextView
+                android:id="@+id/remainLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="남은 독서량"
+                android:textColor="#000000"
+                android:fontFamily="@font/noto_serif_kr_bold"
+                app:layout_constraintTop_toBottomOf="@id/book_cover_card_view"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="12dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="85%"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toTopOf="@+id/readProgressBar"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginBottom="4dp"/>
+
+            <ProgressBar
+                android:id="@+id/readProgressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:padding="12dp"
+
+                android:background="@drawable/bg_radius_20"
+                android:backgroundTint="#E9E1D6"
+
+                android:progress="85"
+                android:progressTint="#CBBBA0"
+                android:progressBackgroundTint="#E9E1D6"
+                app:layout_constraintTop_toBottomOf="@id/remainLabel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp"/>
+
+            <!-- 🔹 한줄평 입력 -->
+            <TextView
+                android:id="@+id/oneLineLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="한줄평"
+                android:textColor="#000000"
+                android:fontFamily="@font/noto_serif_kr_bold"
+                app:layout_constraintTop_toBottomOf="@id/readProgressBar"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="12dp"/>
+
+            <EditText
+                android:id="@+id/oneLineEdit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="책에 대한 생각을 한 줄로 남겨보세요"
+                android:background="@drawable/bg_radius_20"
+                android:backgroundTint="#E9E1D6"
+                android:textSize="12sp"
+                android:minHeight="48dp"
+                android:padding="12dp"
+                app:layout_constraintTop_toBottomOf="@id/oneLineLabel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:id="@+id/scoreLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="점수를 매겨주세요"
+                android:textColor="#000000"
+                android:fontFamily="@font/noto_serif_kr_bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/oneLineEdit"
+                android:layout_marginTop="12dp"/>
+
+            <EditText
+                android:id="@+id/editScore"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_radius_20"
+                android:backgroundTint="#E9E1D6"
+                android:gravity="start"
+                android:hint="00 / 100"
+                android:padding="12dp"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/scoreLabel" />
+
+            <!-- ================= 책 리스트 ================= -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_record"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:clipToPadding="false"
+                android:padding="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editScore"
+                app:layout_constraintVertical_bias="0.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+    <Button
+        android:id="@+id/add_item_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DAY 1 작성하기"
+        android:layout_margin="8dp"
+        android:background="@drawable/bg_radius_20"
+        android:backgroundTint="#E9E1D6"
+        app:layout_constraintBottom_toTopOf="@+id/layout_bottom_menu" />
+
+    <TextView
+        android:id="@+id/save_btn"
+        style="@style/DetailLabelStyle"
+        android:text="저장하기"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:visibility="gone"/>
+    <!-- =======================
+          하단 메뉴 영역
+     ======================== -->
+    <LinearLayout
+        android:id="@+id/layout_bottom_menu"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="#E9E1D6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageButton
+            android:id="@+id/btn_menu_search"
+            style="@style/BottomMenuButton"
+            android:src="@drawable/search_32px"
+            android:background="@drawable/bg_under_btn_bar"
+            android:backgroundTint="#E9E1D6"/>
+
+        <ImageButton
+            android:id="@+id/btn_menu_library"
+            style="@style/BottomMenuButton"
+            android:src="@drawable/book_32px"
+            android:background="@drawable/bg_under_btn_bar"
+            android:backgroundTint="#CBBBA0" />
+
+        <ImageButton
+            android:id="@+id/btn_menu_home"
+            style="@style/BottomMenuButton"
+            android:src="@drawable/home_32px"
+            android:background="@drawable/bg_under_btn_bar"
+            android:backgroundTint="#E9E1D6" />
+
+        <ImageButton
+            android:id="@+id/btn_menu_record"
+            style="@style/BottomMenuButton"
+            android:src="@drawable/note_32px"
+            android:background="@drawable/bg_under_btn_bar"
+            android:backgroundTint="#E9E1D6"/>
+
+        <ImageButton
+            android:id="@+id/btn_menu_mypage"
+            style="@style/BottomMenuButton"
+            android:src="@drawable/profile_32px"
+            android:background="@drawable/bg_under_btn_bar"
+            android:backgroundTint="#E9E1D6"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
