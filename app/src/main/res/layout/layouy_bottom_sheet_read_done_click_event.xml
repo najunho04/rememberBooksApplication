@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_radius_20"
+        android:paddingHorizontal="24dp"
+        android:paddingBottom="32dp">
+
+        <View
+            android:id="@+id/view_handler"
+            android:layout_width="40dp"
+            android:layout_height="4dp"
+            android:layout_marginTop="12dp"
+            android:background="#D1C7B7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/noto_serif_kr_bold"
+            android:text="저장"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/noto_serif_kr_bold"
+            android:includeFontPadding="false"
+            android:text="독서 완료"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_handler" />
+
+        <TextView
+            android:id="@+id/label_date"
+            style="@style/DetailLabelStyle"
+            android:layout_marginTop="20dp"
+            android:text="독서 날짜"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_day" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            style="@style/recordContentStyle"
+            android:background="@null"
+            android:clickable="true"
+            android:text="2025.12.19"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/label_date" />
+
+        <TextView
+            android:id="@+id/label_amount"
+            style="@style/DetailLabelStyle"
+            android:layout_marginTop="16dp"
+            android:text="독서량"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_date" />
+
+        <LinearLayout
+            android:id="@+id/start_page_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/label_amount">
+
+            <TextView
+                android:id="@+id/tv_start_page"
+                style="@style/recordContentStyle"
+                android:background="@null"
+                android:inputType="number"
+                android:text="0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/noto_serif_kr_regular"
+                android:includeFontPadding="false"
+                android:text="p"
+                android:textColor="#555555"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/page_devider"
+                style="@style/recordContentStyle"
+                android:text="~" />
+
+            <TextView
+                android:id="@+id/tv_end_page"
+                style="@style/recordContentStyle"
+                android:background="@null"
+                android:text="100" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/noto_serif_kr_regular"
+                android:includeFontPadding="false"
+                android:text="p"
+                android:textColor="#555555"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/label_comment"
+            style="@style/DetailLabelStyle"
+            android:layout_marginTop="16dp"
+            android:text="한줄평"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/start_page_container" />
+
+        <EditText
+            android:id="@+id/et_comment"
+            style="@style/recordContentStyle"
+            android:background="@null"
+            android:gravity="top"
+            android:hint="책에 대한 한마디를 남겨주세요."
+            android:minLines="2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/label_comment" />
+
+        <TextView
+            android:id="@+id/label_score"
+            style="@style/DetailLabelStyle"
+            android:layout_marginTop="16dp"
+            android:text="점수"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_comment" />
+
+        <EditText
+            android:id="@+id/et_score"
+            style="@style/recordContentStyle"
+            android:background="@null"
+            android:gravity="top"
+            android:hint="점수를 입력하세요 (00/100)"
+            android:inputType="number"
+            android:minLines="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/label_score" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/scoreSlider"
+            style="@style/Widget.MaterialComponents.Slider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:stepSize="1.0"
+            android:theme="@style/CustomSliderTheme"
+            android:value="80.0"
+            android:valueFrom="0.0"
+            android:valueTo="100.0"
+            app:haloRadius="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_score"
+            app:thumbRadius="6dp"
+            app:tickVisible="false" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <FrameLayout
+        android:id="@+id/layout_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#4D000000"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone"
+        tools:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminateTint="#CBBBA0" />
+    </FrameLayout>
+
+</FrameLayout>

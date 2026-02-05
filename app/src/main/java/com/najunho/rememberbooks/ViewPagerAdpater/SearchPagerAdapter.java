@@ -5,26 +5,32 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.najunho.rememberbooks.Fragments.FirstSearchFragment;
-import com.najunho.rememberbooks.Fragments.SecondSearchFragment;
+import com.najunho.rememberbooks.DataClass.Review;
+import com.najunho.rememberbooks.DataClass.SearchResult;
+import com.najunho.rememberbooks.Fragments.SearchBookDetailFragment;
+import com.najunho.rememberbooks.Fragments.SearchBookPage3Fragment;
+import com.najunho.rememberbooks.Fragments.SearchBookReviewFragment;
+
+import java.util.List;
 
 public class SearchPagerAdapter extends FragmentStateAdapter {
-    public SearchPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
+    private SearchResult book;
+    public SearchPagerAdapter(@NonNull FragmentActivity fragmentActivity, SearchResult book) {
         super(fragmentActivity);
+        this.book = book;
     }
     @NonNull
     @Override
     public Fragment createFragment(int position) {
         switch (position){
             case 0:
-                return new FirstSearchFragment();
+                return SearchBookDetailFragment.newInstance(book);
             case 1:
-                return new SecondSearchFragment();
+                return SearchBookReviewFragment.newInstance(book.isbn13);
             case 2:
-                //추후...
-                return new FirstSearchFragment();
+                return SearchBookPage3Fragment.newInstance(book);
             default:
-                return new FirstSearchFragment();
+                return new SearchBookDetailFragment();
         }
     }
 

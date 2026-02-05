@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F4F0"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="설정창"
+            android:textSize="22sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            />
+
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/arrow_left_v2"
+            android:background="@drawable/bg_custom_ripple"/>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView style="@style/SettingCategoryTitle" android:text="정보 수정" />
+            <TextView style="@style/SettingMenuItem" android:id="@+id/changeNickName" android:text="닉네임 변경" />
+            <TextView style="@style/SettingMenuItem" android:id="@+id/logout" android:text="로그아웃" />
+            <TextView style="@style/SettingMenuItem" android:id="@+id/exit" android:text="회원 탈퇴" />
+
+            <TextView style="@style/SettingCategoryTitle" android:text="변경 사항" android:layout_marginTop="20dp"/>
+            <TextView style="@style/SettingMenuItem" android:id="@+id/changeFont" android:text="폰트 변경" />
+            <TextView style="@style/SettingMenuItem" android:id="@+id/changeTheme" android:text="테마 변경" />
+            <TextView style="@style/SettingMenuItem" android:id="@+id/changeAboundOfComment" android:text="한줄평 공개 범위" />
+
+            <TextView style="@style/SettingCategoryTitle" android:text="지원" android:layout_marginTop="20dp"/>
+            <TextView style="@style/SettingMenuItem" android:id="@+id/sendBug" android:text="버그 및 오류 제보" />
+            <TextView style="@style/SettingMenuItem" android:id="@+id/sendMes" android:text="의견 보내기" />
+            <TextView style="@style/SettingMenuItem" android:id="@+id/commonQ" android:text="자주 묻는 질문" />
+
+            <TextView style="@style/SettingCategoryTitle" android:text="서비스 정보" android:layout_marginTop="20dp"/>
+            <TextView style="@style/SettingMenuItem" android:id="@+id/appChannel" android:text="앱 채널 바로가기" />
+            <TextView style="@style/SettingMenuItem" android:id="@+id/mesToDeveloper" android:text="개발자 문의하기" />
+            <TextView style="@style/SettingMenuItem" android:id="@+id/appScore" android:text="평점 남기기" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="40dp"
+                android:background="#333333" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

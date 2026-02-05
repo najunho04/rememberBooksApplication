@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "931090728931",
+    "project_id": "todo-d2cb8971",
+    "storage_bucket": "todo-d2cb8971.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:931090728931:android:6f5e11f84418eed25442d6",
+        "android_client_info": {
+          "package_name": "com.najunho.rememberbooks"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "931090728931-v7ug3s9iga04q5oo74jgjo35iuqkso4f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.najunho.rememberbooks",
+            "certificate_hash": "21821a8438843b87117ca295f3695efeef7196d1"
+          }
+        },
+        {
+          "client_id": "931090728931-k4qbr9rv7ll164tnspjjeah43q4fgh6n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChnyiZP6aIEgMsMqKXByGDVUE8CTT2Xx4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "931090728931-k4qbr9rv7ll164tnspjjeah43q4fgh6n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

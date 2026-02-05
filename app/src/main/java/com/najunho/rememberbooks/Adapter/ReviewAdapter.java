@@ -25,7 +25,7 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
     @Override
     public ReviewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_book_review, parent, false);
+                .inflate(R.layout.item_review, parent, false);
         return new ReviewAdapter.ViewHolder(view);
     }
 
@@ -38,7 +38,12 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
 
     @Override
     public int getItemCount() {
-        return reviewList.size();
+        return reviewList != null ? reviewList.size() : 0;
+    }
+
+    public void setReviewList(List<Review> reviewList) {
+        this.reviewList = reviewList;
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -52,8 +57,8 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
         }
 
         public void bind(Review review){
-            tvUser.setText((review.getUser() != null) ? review.getUser() : "유저 없음");
-            tvScore.setText((review.getScore() != 0) ? String.valueOf(review.getScore()) : "점수 없음");
+            tvUser.setText((review.getNickName() != null) ? review.getNickName() : "익명");
+            tvScore.setText((review.getScore() != 0) ? review.getScore()+" / 100" : "점수 없음");
             tvReview.setText(review.getReview() != null ? review.getReview() : "리뷰 없음");
         }
     }

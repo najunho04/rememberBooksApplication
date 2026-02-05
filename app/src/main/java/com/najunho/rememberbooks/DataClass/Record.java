@@ -14,6 +14,8 @@ public class Record implements Serializable {
     private int startPage;
     private int endPage;
 
+    public Record(){}
+
     // 생성자, Getter, Setter (생략 가능)
     public Record(String id, String day, String date, String quote, String thought, int startPage, int endPage) {
         this.id = id;

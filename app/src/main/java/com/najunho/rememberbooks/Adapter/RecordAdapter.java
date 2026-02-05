@@ -23,7 +23,7 @@ public class RecordAdapter extends ListAdapter<Record, RecordAdapter.RecordViewH
     public interface OnItemClickListener {
         void onItemClick(Record record);
         void onEditClick(Record record, int position);
-        void onDeleteClick(Record record);
+        void onDeleteClick(Record record, int position);
     }
 
     private final OnItemClickListener listener;
@@ -104,7 +104,7 @@ public class RecordAdapter extends ListAdapter<Record, RecordAdapter.RecordViewH
             tvDelete.setOnClickListener(v->{
                 //삭제 로직
                 if (listener != null) {
-                    listener.onDeleteClick(record);
+                    listener.onDeleteClick(record, getLayoutPosition());
                 }
             });
         }

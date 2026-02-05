@@ -10,4 +10,30 @@
     <style name="CustomBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@android:color/transparent</item>
     </style>
+
+    <style name="MyDatePickerStyle" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">#6200EE</item> </style>
+
+    <style name="CustomSliderTheme" parent="Theme.MaterialComponents.Light.Bridge">
+        <item name="colorPrimary">#CBBBA0</item>
+
+        <item name="colorOnSurface">#E0E0E0</item>
+
+        <item name="colorControlHighlight">#336200EE</item>
+    </style>
+
+    <style name="CustomSliderTooltip" parent="Widget.MaterialComponents.Tooltip">
+        <item name="backgroundTint">#E9E1D6</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+
+    <style name="ShapeAppearance.App.MediumComponent" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <style name="Widget.App.ShapeableImageView" parent="">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.App.MediumComponent</item>
+    </style>
 </resources>

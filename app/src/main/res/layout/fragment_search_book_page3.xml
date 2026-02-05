@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5EFE6">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingHorizontal="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/view_divider"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingVertical="16dp">
+
+            <TextView
+                style="@style/DetailLabelStyle"
+                android:layout_width="match_parent"
+                android:text="상품명" />
+            <TextView
+                android:id="@+id/tv_detail_title"
+                style="@style/DetailContentStyle"
+                android:text="데미안" />
+
+            <TextView
+                style="@style/DetailLabelStyle"
+                android:text="작가" />
+
+            <TextView
+                android:id="@+id/tv_detail_author"
+                style="@style/DetailContentStyle"
+                android:text="헤르만 헤세" />
+
+            <TextView
+                style="@style/DetailLabelStyle"
+                android:text="출간일" />
+            <TextView
+                android:id="@+id/tv_detail_publish_date"
+                style="@style/DetailContentStyle"
+                android:text="0000.00.00" />
+
+            <TextView
+                style="@style/DetailLabelStyle"
+                android:text="isbn13" />
+            <TextView
+                android:id="@+id/tv_isbn13"
+                style="@style/DetailContentStyle"
+                android:text="12345678" />
+
+            <TextView
+                style="@style/DetailLabelStyle"
+                android:text="판매가" />
+            <TextView
+                android:id="@+id/tv_sale"
+                style="@style/DetailContentStyle"
+                android:text="장편소설, 픽션" />
+
+            <TextView
+                style="@style/DetailLabelStyle"
+                android:text="재고상태" />
+            <TextView
+                android:id="@+id/tv_stockState"
+                style="@style/DetailContentStyle"
+                android:text="품절" />
+
+            <TextView
+                style="@style/DetailLabelStyle"
+                android:text="도서 구매 링크" />
+
+            <TextView
+                android:id="@+id/tv_link"
+                style="@style/DetailContentStyle"
+                android:text="url1111..." />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <View
+        android:id="@+id/view_divider"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginBottom="24dp"
+        android:background="#707070"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
