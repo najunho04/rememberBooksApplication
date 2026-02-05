@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3EFEA">
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-3940256099942544/6300978111"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/main_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/layout_bottom_menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adView" />
+
+    <!-- =======================
+         하단 메뉴 영역
+    ======================== -->
+    <LinearLayout
+        android:id="@+id/layout_bottom_menu"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="#F3EFEA"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageButton
+            android:id="@+id/btn_menu_search"
+            style="@style/BottomMenuButton"
+            android:src="@drawable/search"
+            android:background="@drawable/bg_under_btn_bar" />
+
+        <ImageButton
+            android:id="@+id/btn_menu_record"
+            style="@style/BottomMenuButton"
+            android:src="@drawable/book_open"
+            android:background="@drawable/bg_under_btn_bar" />
+
+        <ImageButton
+            android:id="@+id/btn_menu_home"
+            style="@style/BottomMenuButton"
+            android:src="@drawable/house"
+            android:background="@drawable/bg_under_btn_bar"
+            android:backgroundTint="#E9E1D6" />
+
+        <ImageButton
+            android:id="@+id/btn_menu_library"
+            style="@style/BottomMenuButton"
+            android:src="@drawable/book"
+            android:background="@drawable/bg_under_btn_bar" />
+
+        <ImageButton
+            android:id="@+id/btn_menu_mypage"
+            style="@style/BottomMenuButton"
+            android:src="@drawable/user"
+            android:background="@drawable/bg_under_btn_bar" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/layout_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#4D000000"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminateTint="#CBBBA0" />
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

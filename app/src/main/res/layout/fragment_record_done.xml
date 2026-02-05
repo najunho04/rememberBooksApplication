@@ -5,7 +5,8 @@
     android:layout_height="wrap_content"
     android:paddingHorizontal="24dp"
     android:paddingBottom="32dp"
-    android:background="@drawable/bg_radius_20">
+    android:background="@drawable/bg_radius_20"
+    android:backgroundTint="#E9E1D6">
 
     <TextView
         android:id="@+id/tv_day"

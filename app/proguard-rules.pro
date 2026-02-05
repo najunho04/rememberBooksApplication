@@ -19,3 +19,6 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# 메인 액티비티 및 기본 컴포넌트 유지
+-keep class com.najunho.rememberbooks.** { *; } # 본인의 패키지명에 맞게 수정

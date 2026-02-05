@@ -17,12 +17,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <TextView
+        android:id="@+id/get_text_from_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:src="@drawable/bg_custom_ripple"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/noto_serif_kr_bold"
+        android:includeFontPadding="false"
+        android:text="클릭 시 사진에서 문구를 추출합니다"
+        android:textSize="11sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/start_page_container" />
+
     <TextView
         android:id="@+id/tv_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
+        android:src="@drawable/bg_custom_ripple"
         android:text="삭제"
         android:fontFamily="@font/noto_serif_kr_bold"
         android:textColor="#000000"
@@ -36,6 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="저장"
+        android:src="@drawable/bg_custom_ripple"
         android:fontFamily="@font/noto_serif_kr_bold"
         android:textColor="#000000"
         android:textSize="14sp"
@@ -64,8 +81,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_day" />
 
-    <EditText
-        android:id="@+id/et_date"
+    <TextView
+        android:id="@+id/tv_date"
         style="@style/recordContentStyle"
         android:hint="2025.12.19"
         android:inputType="date"
@@ -79,7 +96,7 @@
         android:layout_marginTop="16dp"
         android:text="독서량"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_date" />
+        app:layout_constraintTop_toBottomOf="@id/tv_date" />
 
     <LinearLayout
         android:id="@+id/start_page_container"
@@ -92,7 +109,7 @@
         <EditText
             android:id="@+id/et_start_page"
             style="@style/recordContentStyle"
-            android:hint="40"
+            android:hint="00"
             android:background="@null"
             android:inputType="number" />
 
@@ -116,7 +133,7 @@
             android:id="@+id/et_end_page"
             style="@style/recordContentStyle"
             android:background="@null"
-            android:hint="100"
+            android:hint="000"
             android:inputType="number"
             app:layout_constraintStart_toEndOf="@+id/start_page_container"
             app:layout_constraintTop_toBottomOf="@id/label_amount" />
@@ -137,16 +154,16 @@
     <TextView
         android:id="@+id/label_quote"
         style="@style/DetailLabelStyle"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:text="마음에 드는 문구"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/start_page_container" />
+        app:layout_constraintTop_toBottomOf="@id/get_text_from_img" />
 
     <EditText
         android:id="@+id/et_quote"
         style="@style/recordContentStyle"
         android:hint="문구를 입력하세요"
-        android:minLines="2"
+        android:maxLines="4"
         android:gravity="top"
         android:background="@null"
         app:layout_constraintStart_toStartOf="parent"
@@ -165,7 +182,7 @@
         style="@style/recordContentStyle"
         android:hint="생각을 입력하세요"
         android:background="@null"
-        android:minLines="4"
+        android:maxLines="4"
         android:gravity="top"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/label_thought" />

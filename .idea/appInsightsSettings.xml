@@ -22,10 +22,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.najunho.rememberbooks" />
+                  <option name="mobileSdkAppId" value="1:931090728931:android:6f5e11f84418eed25442d6" />
+                  <option name="projectId" value="todo-d2cb8971" />
+                  <option name="projectNumber" value="931090728931" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

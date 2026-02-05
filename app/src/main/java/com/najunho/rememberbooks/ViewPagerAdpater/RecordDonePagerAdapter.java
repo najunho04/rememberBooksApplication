@@ -8,9 +8,8 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.najunho.rememberbooks.DataClass.Record;
-import com.najunho.rememberbooks.Fragments.RecordListFragment;
+import com.najunho.rememberbooks.Fragments.RecordDoneListFragment;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RecordDonePagerAdapter extends FragmentStateAdapter {
@@ -25,7 +24,7 @@ public class RecordDonePagerAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         Log.d("createFragment", "success");
         Record record = recordList.get(position);
-        return RecordListFragment.newInstance(record, position, recordList.size());
+        return RecordDoneListFragment.newInstance(record, position, recordList.size());
     }
 
     @Override
