@@ -34,8 +34,8 @@ android {
         applicationId = "com.najunho.rememberbooks"
         minSdk = 28
         targetSdk = 36
-        versionCode = 7
-        versionName = "1.0.7"
+        versionCode = 11
+        versionName = "1.0.11" //내부 테스트 버전. v1.0.8과 동일
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
