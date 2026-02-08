@@ -54,6 +54,12 @@ public class MyPageViewModel extends ViewModel {
                 final AtomicInteger processedCount = new AtomicInteger(0); // 스레드 안전한 카운터
                 Log.d("loadDailyBooksMap", "getMyBookList Success");
 
+                if (myBookList.isEmpty()){
+                    Log.d("loadDailyBooksMap", "myBookList.isEmpty()");
+                    _dailyBooksMap.setValue(new HashMap<>());
+                    return;
+                }
+
                 for(MyBook book : myBookList){
                     if (book == null){
                         Log.e("loadDailyBooksMap", "no myBook data");

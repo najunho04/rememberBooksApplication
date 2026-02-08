@@ -46,10 +46,10 @@ public class LoginActivity extends AppCompatActivity {
 
         // 2. App Check 인스턴스 가져오기 및 Play Integrity 설정
         FirebaseAppCheck firebaseAppCheck = FirebaseAppCheck.getInstance();
-        firebaseAppCheck.installAppCheckProviderFactory(
-                DebugAppCheckProviderFactory.getInstance());
         //firebaseAppCheck.installAppCheckProviderFactory(
-                           //PlayIntegrityAppCheckProviderFactory.getInstance());
+                //DebugAppCheckProviderFactory.getInstance());
+        firebaseAppCheck.installAppCheckProviderFactory(
+                          PlayIntegrityAppCheckProviderFactory.getInstance());
 
         setContentView(R.layout.activity_login);
 

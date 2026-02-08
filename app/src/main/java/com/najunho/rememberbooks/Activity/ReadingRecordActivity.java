@@ -193,6 +193,8 @@ public class ReadingRecordActivity extends AppCompatActivity {
 
             //myBook o, records 없을 때
             if (records.isEmpty()){
+                Log.d("getRecordList", "itemCount When records.isEmpty : " + itemCount);
+                itemCount = 0;
                 lastEndPage = 0;
                 int readPercent = getReadPercent(allpage, lastEndPage);
                 bookRemainingPage.setText("남은 독서량: " + (100 - readPercent) + "%");
@@ -205,6 +207,8 @@ public class ReadingRecordActivity extends AppCompatActivity {
             Log.d("getRecordList", "allPage: " + allpage);
             Log.d("getRecordList", "lastEndPage: " + lastEndPage);
             itemCount = records.size();
+
+            Log.d("getRecordList", "itemCount: " + itemCount);
 
             //lastPage 계산
             int lastIndex = records.size() -1;
@@ -254,7 +258,7 @@ public class ReadingRecordActivity extends AppCompatActivity {
                     return;
                 }
                 String id = UUID.randomUUID().toString();
-                Record newRecord = new Record(id, "DAY " + (++itemCount), null, null, null, lastEndPage, 0);
+                Record newRecord = new Record(id, "DAY " + (itemCount + 1), null, null, null, lastEndPage, 0);
                 //bottomSheet -> item 작성
                 RecordBottomSheetFragment bottomSheet = RecordBottomSheetFragment.newInstance(newRecord, "record", isbn13);
                 bottomSheet.show(getSupportFragmentManager(), "RecordBottomSheet");

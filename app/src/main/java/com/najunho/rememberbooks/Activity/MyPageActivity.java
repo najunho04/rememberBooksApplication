@@ -211,6 +211,7 @@ public class MyPageActivity extends AppCompatActivity {
     }
 
     private void showMainContent() {
+        Log.d("checkAllUIReady", "showMainContent success");
         layoutHeader.setVisibility(View.VISIBLE);
         mainScrollView.setVisibility(View.VISIBLE);
         loadingLayout.setVisibility(View.GONE);
@@ -223,6 +224,7 @@ public class MyPageActivity extends AppCompatActivity {
                 currentUser = user;
                 tvMainHeader.setText(currentUser.getNickName() + "님 환영합니다");
             }
+            Log.d("checkAllUIReady", "success1");
             checkAllUIReady();
         });
 
@@ -232,18 +234,21 @@ public class MyPageActivity extends AppCompatActivity {
             Log.d("Observer", "DailyBooksMap updated");
             // 맵 데이터가 들어오면 캘린더 갱신
             refreshCalendar();
+            Log.d("checkAllUIReady", "success2");
             checkAllUIReady();
         });
 
         // 3. 상위 독서왕 리스트 업데이트
         vm.getUserList().observe(this, users -> {
             updateTopMembersUI(users);
+            Log.d("checkAllUIReady", "success3");
             checkAllUIReady();
         });
 
         // 4. 내 책 통계 업데이트
         vm.getMyBookList().observe(this, books -> {
             updateStatsUI(books);
+            Log.d("checkAllUIReady", "success4");
             checkAllUIReady();
         });
     }
