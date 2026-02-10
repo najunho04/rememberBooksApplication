@@ -41,6 +41,8 @@ public class RecordBottomSheetFragment extends BottomSheetDialogFragment {
     private static final String ARG_THOUGHT = "thought";
     private static final String ARG_STATE = "state";
     private static final String ARG_ISBN13 = "isbn13";
+    private static final String ARG_BOOK_END_PAGE = "bookEndPage";
+
     private String idData;
     private String dayData;
     private String dateData;
@@ -50,6 +52,7 @@ public class RecordBottomSheetFragment extends BottomSheetDialogFragment {
     private String thoughtData;
     private String stateData;
     private String isbn13;
+    private int bookEndPage;
 
 
     private EditText etStartPage, etEndPage, etQuote, etThought;
@@ -57,7 +60,7 @@ public class RecordBottomSheetFragment extends BottomSheetDialogFragment {
     private ActivityResultLauncher<Intent> ocrLauncher;
     private String savedResultText = ""; // 데이터를 임시 저장할 변수
 
-    public static RecordBottomSheetFragment newInstance(Record record, String state, String isbn13) {
+    public static RecordBottomSheetFragment newInstance(Record record, String state, String isbn13, int bookEndPage) {
         RecordBottomSheetFragment fragment = new RecordBottomSheetFragment();
         Bundle args = new Bundle();
         args.putString(ARG_ID, record.getId());
@@ -69,6 +72,8 @@ public class RecordBottomSheetFragment extends BottomSheetDialogFragment {
         args.putString(ARG_THOUGHT, record.getThought());
         args.putString(ARG_STATE, state);
         args.putString(ARG_ISBN13, isbn13);
+        args.putInt(ARG_BOOK_END_PAGE, bookEndPage);
+
         fragment.setArguments(args);
         return fragment;
     }
@@ -110,6 +115,7 @@ public class RecordBottomSheetFragment extends BottomSheetDialogFragment {
             thoughtData = getArguments().getString(ARG_THOUGHT);
             stateData = getArguments().getString(ARG_STATE);
             isbn13 = getArguments().getString(ARG_ISBN13);
+            bookEndPage = getArguments().getInt(ARG_BOOK_END_PAGE);
         }
 
         // XML 레이아웃 인플레이트
@@ -203,6 +209,10 @@ public class RecordBottomSheetFragment extends BottomSheetDialogFragment {
         }
         if (startPage > endPage){
             Toast.makeText(getContext(), "시작 페이지가 종료 페이지보다 큽니다.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (endPage > bookEndPage){
+            Toast.makeText(getContext(), "종료 페이지가 전체 페이지보다 큽니다.", Toast.LENGTH_SHORT).show();
             return;
         }
 

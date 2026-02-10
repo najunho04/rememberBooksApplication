@@ -9,8 +9,8 @@
 
     <ImageButton
         android:id="@+id/btn_side_view"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_gravity="center_vertical"
         android:background="@drawable/bg_custom_ripple"
         android:src="@drawable/list"
@@ -47,7 +47,7 @@
                 android:includeFontPadding="false"
                 android:text="사용자의 질문이 여기에 표시됩니다."
                 android:textColor="#000000"
-                android:textSize="14sp" />
+                android:textSize="17sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -69,7 +69,7 @@
                     android:includeFontPadding="false"
                     android:text="AI의 응답이 여기에 표시됩니다."
                     android:textColor="#333333"
-                    android:textSize="14sp" />
+                    android:textSize="17sp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -99,7 +99,8 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="주제를 제시해줘" />
+                android:text="주제를 제시해줘"
+                android:textSize="16sp"/>
 
             <TextView
                 android:id="@+id/example_q2"
@@ -108,6 +109,7 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:textSize="16sp"
                 android:text="내 기록을 참고해서 토론 시작해줘" />
 
             <TextView
@@ -117,6 +119,7 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:textSize="16sp"
                 android:text="책의 대표적인 토론 주제는 뭐야?" />
 
         </LinearLayout>
@@ -143,12 +146,13 @@
             android:hint="질문을 입력하세요."
             android:maxLines="4"
             android:minHeight="48dp"
+            android:textSize="17sp"
             android:paddingHorizontal="12dp" />
 
         <ImageButton
             android:id="@+id/btnSend"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="전송"
             android:src="@android:drawable/ic_menu_send"

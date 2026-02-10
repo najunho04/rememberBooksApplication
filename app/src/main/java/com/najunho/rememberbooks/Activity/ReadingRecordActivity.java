@@ -133,7 +133,7 @@ public class ReadingRecordActivity extends AppCompatActivity {
             @Override
             public void onEditClick(Record record, int position) {
                 //수정 로직
-                RecordBottomSheetFragment bottomSheet = RecordBottomSheetFragment.newInstance(record, "edit", isbn13);
+                RecordBottomSheetFragment bottomSheet = RecordBottomSheetFragment.newInstance(record, "edit", isbn13, allpage);
                 bottomSheet.show(getSupportFragmentManager(), "EditBottomSheet");
             }
 
@@ -201,6 +201,13 @@ public class ReadingRecordActivity extends AppCompatActivity {
                 bookRemainingPage2.setText("남은 페이지: " + lastEndPage + "/" + allpage + "p");
                 textRemainingPage.setText(readPercent + "%");
                 readProgressBar.setProgress(readPercent);
+
+                //롤백 시 초기화
+                isReadDone = false;
+                disableEditing(false, oneLineEdit);
+                disableEditing(false, editScore);
+                scoreSlider.setVisibility(View.GONE);
+                saveBtn.setVisibility(View.GONE);
                 return;
             }
 
@@ -260,7 +267,7 @@ public class ReadingRecordActivity extends AppCompatActivity {
                 String id = UUID.randomUUID().toString();
                 Record newRecord = new Record(id, "DAY " + (itemCount + 1), null, null, null, lastEndPage, 0);
                 //bottomSheet -> item 작성
-                RecordBottomSheetFragment bottomSheet = RecordBottomSheetFragment.newInstance(newRecord, "record", isbn13);
+                RecordBottomSheetFragment bottomSheet = RecordBottomSheetFragment.newInstance(newRecord, "record", isbn13, allpage);
                 bottomSheet.show(getSupportFragmentManager(), "RecordBottomSheet");
             }
         });
@@ -322,8 +329,14 @@ public class ReadingRecordActivity extends AppCompatActivity {
         //Slider 변경 감지 -> editText 변경
         scoreSlider.addOnChangeListener((slider, value, fromUser) -> {
             // value는 float이므로 (예: 80.0) 정수로 변환 (예: 80)
-            int score = (int) value;
-            editScore.setText(String.valueOf(score));
+            // 중요: 사용자가 '직접' 슬라이더를 터치해서 움직였을 때만 EditText를 업데이트함
+            if (fromUser) {
+                int score = (int) value;
+                editScore.setText(String.valueOf(score));
+
+                // 텍스트를 업데이트한 후 커서를 맨 끝으로 이동시킴 (입력 오류 방지)
+                editScore.setSelection(editScore.getText().length());
+            }
         });
 
     }
@@ -380,6 +393,9 @@ public class ReadingRecordActivity extends AppCompatActivity {
         // 이미지 로드
         Glide.with(this)
                 .load(book.getCover())
+                .placeholder(R.drawable.book_cover)
+                .centerCrop() // 이 옵션이 이미지뷰 크기에 맞게 이미지를 잘라줍니다.
+                .dontAnimate() // 애니메이션을 제거하여 크기 튐 현상 방지
                 .into(ivBookCover);
 
         // 입력 필드 비활성화 (공통 설정)
