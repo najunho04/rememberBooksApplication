@@ -9,6 +9,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -46,6 +49,13 @@ public class SearchBookListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_booklist);
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.search_bar), (v, windowInsets) -> {
+            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+            // 최상위 레이아웃에 시스템 바만큼 패딩 적용
+            v.setPadding(insets.left, insets.top, insets.right, 0);
+            return WindowInsetsCompat.CONSUMED;
+        });
 
         searchBtn = findViewById(R.id.search_btn);
         etSearch = findViewById(R.id.etSearch);

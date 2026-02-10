@@ -130,6 +130,7 @@ public class SearchBookActivity extends AppCompatActivity {
                 }else if (check.getState() == MyBook.STATE_READING){
                     Toast.makeText(SearchBookActivity.this, "독서를 시작합니다!", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(SearchBookActivity.this, ReadingRecordActivity.class);
+                    Log.d("getSaveSuccess", "intent putExtra : book cover: " + check.getMyBook().getCover());
                     intent.putExtra("myBook", check.getMyBook());
                     intent.putExtra("beforeActivity", "searchBook");
                     startActivity(intent);
